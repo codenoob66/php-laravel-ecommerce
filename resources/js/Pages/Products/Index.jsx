@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+
 export default function Index({ products }) {
     return (
         <div className="max-w-7xl mx-auto p-6">
@@ -12,7 +14,9 @@ export default function Index({ products }) {
                         className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
                     >
                         <h2 className="text-xl font-semibold text-gray-800">
-                            {product.name}
+                            <Link href={`/products/${product.id}`}>
+                                {product.name}
+                            </Link>
                         </h2>
                         <span className="mt-2 text-gray-600">
                             {product.price}

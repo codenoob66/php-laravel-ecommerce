@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,5 +27,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+
+
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('product.show');
+Route::post('/cart/add', [CartController::class,'store'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
 require __DIR__.'/auth.php';
