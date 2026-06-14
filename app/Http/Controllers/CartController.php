@@ -34,7 +34,7 @@ class CartController extends Controller
         $product->quantity = $myCart[$product->id];
        }
 
-       return Inertia::render('Products/Cart',[
+       return Inertia::render('Cart/CartIndex',[
            'cartItems' => $products
        ]);
     }
